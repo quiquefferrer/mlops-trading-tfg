@@ -15,7 +15,7 @@ def update_stock_data(ticker="AAPL", days_back=5):
         last_date = df_existing.index[-1].date()
     else:
         df_existing = pd.DataFrame()
-        last_date = datetime(2020, 1, 1).date()  # Fecha por defecto
+        last_date = datetime(1980, 1, 1).date()  # Fecha por defecto
     
     # 2. Verificar si necesitamos actualizar
     today = datetime.now().date()
