@@ -11,7 +11,9 @@ def update_stock_data(ticker="AAPL", days_back=5):
     
     # 1. Cargar datos existentes o crear nuevo
     if os.path.exists(file_path):
-        df_existing = pd.read_csv(file_path, index_col=0, parse_dates=True)
+        df_existing = pd.read_csv(file_path, index_col=0)
+        df_existing.index = pd.to_datetime(df_existing.index, errors="coerce")
+        df_existing = df_existing[~df_existing.index.isna()].sort_index()
         last_date = df_existing.index[-1].date()
     else:
         df_existing = pd.DataFrame()
