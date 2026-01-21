@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  update-data:
+    cmd: python scripts/update_data.py
+    deps:
+    - path: scripts/update_data.py
+      hash: md5
+      md5: f53b6432e564b3abf2318ec9359d8528
+      size: 2836
+    outs:
+    - path: data/raw/AAPL.csv
+      hash: md5
+      md5: f4d7e764df1195f5f97f4359e0648659
+      size: 1102553
